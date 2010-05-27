@@ -12,36 +12,72 @@
       -webkit-transition: background-color 500ms ease-in-out;
     }
   
-    html:hover,html:hover body {
-      background-color:#000;
-    }
+    html:hover,html:hover body { background-color:#000; }
     
-    p {
-      text-align:center;
-    }
+    p { text-align:center; clear:both; }
     
-    a {
-      color:#C7D23F;
+    a { color:#C7D23F; }
+    
+      a:hover { text-decoration:none; }
+    
+    div {
+      width:934px;
+      margin:1em auto;
     }
-      a:hover {
-        text-decoration:none;
-      }
     
     ul {
-      margin:1em auto;
-      width:570px;
-      height:570px;
-      padding:0;
       list-style:none;
+      margin:0;
+      padding:0;
     }
     
-    * > ul {
+    #zoom {
+      margin-top:14px;
+      float:right;
+      height:452px;
+      width:452px;
+      overflow:hidden;
+    }
+    
+    #thumbs {
+      float:left;
       width:482px;
       height:482px;
     }
     
-      ul li {
+    #zoom {
+      position:relative;
+    }
+    
+    #zoom:not(.ie) img {
+      position:absolute;
+      left:0;
+      top:0;
+      opacity:0;
+      z-index:2;
+      -webkit-transition: opacity 1s ease-in-out;
+    	-moz-transition: opacity 1s ease-in-out;
+    	-o-transition: opacity 1s ease-in-out;
+    	transition: opacity 1s ease-in-out;
+    }
+    
+    #zoom img:target {
+      opacity:1;
+    }
+
+      #thumbs li img {
+        height:144px;
+        width:144px;
+      }
+      
+      #thumbs:not(.ie) li img {
+        height:180px;
+        width:180px;
+      }
+    
+      #thumbs li {
         float:left;
+        display:inline;
         cursor:pointer;
         opacity:1;
         margin-right:10px;
@@ -54,9 +90,9 @@
         -webkit-transition: all 250ms ease-in-out;
       }
       
-      ul:hover li { opacity:0.3; }
+      #thumbs:hover li { opacity:0.3; }
     
-      ul:hover li:hover {
+      #thumbs:hover li:hover {
         opacity:1;
         position:relative;
         z-index:2;
@@ -64,13 +100,14 @@
         -webkit-transform: translate(-10px, 0);
       }
       
-        ul li img {
+        #thumbs li img {
+          border:none;
           -moz-box-shadow:0 0 0 rgba(255,255,255,0.5);
           -webkit-box-shadow:0 0 0 rgba(255,255,255,0.5);
           -webkit-transition: all 250ms ease-in-out;
         }
         
-        ul:hover li:hover img {
+        #thumbs:hover li:hover img {
           -moz-box-shadow:0 0 30px rgba(255,255,255,0.5);
           -webkit-box-shadow:0 0 30px rgba(255,255,255,0.5);
         }
@@ -78,26 +115,39 @@
   <!--[if lte IE 8]><script>'abbr article aside figure figcaption footer header hgroup nav section summary time video'.replace(/\w+/g,function(n){document.createElement(n)})</script><![endif]-->
 </head>
 <body>
-<ul>
-  <li><img src="art1.jpg" width="180" height="180" alt="Art1"></li>
-  <li><img src="art2.jpg" width="180" height="180" alt="Art2"></li>
-  <li><img src="art3.jpg" width="180" height="180" alt="Art3"></li>
-  <li><img src="art4.jpg" width="180" height="180" alt="Art4"></li>
-  <li><img src="art5.jpg" width="180" height="180" alt="Art5"></li>
-  <li><img src="art6.jpg" width="180" height="180" alt="Art6"></li>
-  <li><img src="art7.jpg" width="180" height="180" alt="Art7"></li>
-  <li><img src="art8.jpg" width="180" height="180" alt="Art8"></li>
-  <li><img src="art9.jpg" width="180" height="180" alt="Art9"></li>
-</ul>
-<p><small><a href="http://clearideaz.com" title="Clearideaz.com, webdesigner et développeur front-end sur Lille, Nord Pas-de-calais">&copy; Clearideaz.com 2010</a></small></p>
-<script>
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write("\<script src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'>\<\/script>" );
-</script>
-<script>
-var pageTracker = _gat._getTracker("UA-12658684-1");
-pageTracker._initData();
-pageTracker._trackPageview();
-</script>
+  <div>
+    <ul id="zoom">
+      <li><img id="art1" src="art1.jpg" width="452" height="452" alt="Art1"></li>
+      <li><img id="art2" src="art2.jpg" width="452" height="452" alt="Art2"></li>
+      <li><img id="art3" src="art3.jpg" width="452" height="452" alt="Art3"></li>
+      <li><img id="art4" src="art4.jpg" width="452" height="452" alt="Art4"></li>
+      <li><img id="art5" src="art5.jpg" width="452" height="452" alt="Art5"></li>
+      <li><img id="art6" src="art6.jpg" width="452" height="452" alt="Art6"></li>
+      <li><img id="art7" src="art7.jpg" width="452" height="452" alt="Art7"></li>
+      <li><img id="art8" src="art8.jpg" width="452" height="452" alt="Art8"></li>
+      <li><img id="art9" src="art9.jpg" width="452" height="452" alt="Art9"></li>
+    </ul>
+    <ul id="thumbs">
+      <li><a href="#art1"><img src="art1_thumb.jpg" width="180" height="180" alt="Art1"></a></li>
+      <li><a href="#art2"><img src="art2_thumb.jpg" width="180" height="180" alt="Art2"></a></li>
+      <li><a href="#art3"><img src="art3_thumb.jpg" width="180" height="180" alt="Art3"></a></li>
+      <li><a href="#art4"><img src="art4_thumb.jpg" width="180" height="180" alt="Art4"></a></li>
+      <li><a href="#art5"><img src="art5_thumb.jpg" width="180" height="180" alt="Art5"></a></li>
+      <li><a href="#art6"><img src="art6_thumb.jpg" width="180" height="180" alt="Art6"></a></li>
+      <li><a href="#art7"><img src="art7_thumb.jpg" width="180" height="180" alt="Art7"></a></li>
+      <li><a href="#art8"><img src="art8_thumb.jpg" width="180" height="180" alt="Art8"></a></li>
+      <li><a href="#art9"><img src="art9_thumb.jpg" width="180" height="180" alt="Art9"></a></li>
+    </ul>
+  </div>
+  <p><small><a href="http://clearideaz.com" title="Clearideaz.com, webdesigner et développeur front-end sur Lille, Nord Pas-de-calais">&copy; Clearideaz.com 2010</a></small></p>
+  <script>
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write("\<script src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'>\<\/script>" );
+  </script>
+  <script>
+  var pageTracker = _gat._getTracker("UA-12658684-1");
+  pageTracker._initData();
+  pageTracker._trackPageview();
+  </script>
 </body>
 </html>
