@@ -1,7 +1,10 @@
 body,html {
   font-family:"Helvetica Neue", Arial, Helvetica, Verdana, sans-serif;
   background-color:#262016;
+  -moz-transition: background-color 500ms ease-in-out;
   -webkit-transition: background-color 500ms ease-in-out;
+  -o-transition: background-color 500ms ease-in-out;
+  transition: background-color 500ms ease-in-out;
 }
 
 html:hover,html:hover body { background-color:#000; }
@@ -62,12 +65,15 @@ body #zoom {
   z-index:2;
   height:144px;
   width:144px;
+  -moz-transform:rotate(-360deg);
   -webkit-transform:rotate(-360deg);
+  -o-transform:rotate(-360deg);
+  transform:rotate(-360deg);
+  -moz-transition: all 1s ease-in-out;
   -webkit-transition: all 1s ease-in-out;
-	-moz-transition: all 1s ease-in-out;
-	-o-transition: all 1s ease-in-out;
-	transition: all 1s ease-in-out;
-	z-index:1;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+  z-index:1;
 }
 
 img#art1,
@@ -102,7 +108,10 @@ img#art9 {
 
 
 #zoom img:target {
+  -moz-transform:rotate(0deg);
   -webkit-transform:rotate(0deg);
+  -o-transform:rotate(0deg);
+  transform:rotate(0deg);
   z-index:3;
   opacity:1;
   top:0;
@@ -136,10 +145,14 @@ img#art9 {
     margin-bottom:10px;
     height:144px;
     width:144px;
-    -moz-transform:scale(0.8);
-    -webkit-transform:scale(0.8);
-    transform:scale(0.8);
-    -webkit-transition: all 250ms ease-in-out;
+	-moz-transform:scale(0.8);
+	-webkit-transform:scale(0.8);
+	-o-transform:scale(0.8);
+	transform:scale(0.8);
+	-moz-transition:all 250ms ease-in-out;
+	-webkit-transition:all 250ms ease-in-out;
+	-o-transition:all 250ms ease-in-out;
+	transition:all 250ms ease-in-out;
   }
   
   #thumbs:hover li { opacity:0.3; }
@@ -148,15 +161,20 @@ img#art9 {
     opacity:1;
     position:relative;
     z-index:5;
-    -moz-transform: translate(-10px, 0);
-    -webkit-transform: translate(-10px, 0);
+	-moz-transform:translate(-10px, 0);
+	-webkit-transform:translate(-10px, 0);
+	-o-transform:translate(-10px, 0);
+	transform:translate(-10px, 0)
   }
   
     #thumbs li img {
       border:none;
       -moz-box-shadow:0 0 0 rgba(255,255,255,0.5);
       -webkit-box-shadow:0 0 0 rgba(255,255,255,0.5);
+      -moz-transition: all 250ms ease-in-out;
       -webkit-transition: all 250ms ease-in-out;
+      -o-transition: all 250ms ease-in-out;
+      transition: all 250ms ease-in-out;
     }
     
     #thumbs:hover li:hover img {
